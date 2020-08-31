@@ -60,7 +60,7 @@ user = input("[n] North  [e] East  [w] West  [s] South  [q] Quit: ")
 # If the user enters "q", quit the game.
 while not user == 'q':
     if user == 'n':
-        room[player.location] = room[player.location].n_to
+        room[player.location].n_to
         break
     else:
         print('YOLO')
