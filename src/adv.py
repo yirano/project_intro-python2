@@ -46,7 +46,7 @@ start = 'outside'
 
 player = Player(name, start)
 
-print(player.location)
+print(f'Hello {player.name}')
 user = input("[n] North  [e] East  [w] West  [s] South  [q] Quit: ")
 # Write a loop that:
 #
@@ -73,5 +73,5 @@ while not user == 'q':
     else:
         print("Please provide valid input")
 
-    print("Choose again to continue")
+    print("\nChoose again to continue")
     user = input("[n] North  [e] East  [w] West  [s] South  [q] Quit: ")
