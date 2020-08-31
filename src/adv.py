@@ -47,7 +47,7 @@ start = 'outside'
 player = Player(name, start)
 
 print(f'Hello {player.name}')
-user = input("[n] North  [e] East  [w] West  [s] South  [q] Quit: ")
+user = input("[n] North  [e] East  [w] West  [s] South  [q] Quit: ").lower()
 # Write a loop that:
 #
 # * Prints the current room name
@@ -61,13 +61,19 @@ user = input("[n] North  [e] East  [w] West  [s] South  [q] Quit: ")
 while not user == 'q':
     if user == 'n':
         print("North")
-        room[player.location] = room[player.location].n_to
+        # player.location = room[player.location].n_to
+        player = Player(name, room[player.location].n_to)
     elif user == 'e':
         print("East")
+        # player.location = room[player.location].e_to
+        player = Player(name, room[player.location].e_to)
+
     elif user == 'w':
         print("West")
+        player.location = room[player.location].w_to
     elif user == 's':
         print("South")
+        player.location = room[player.location].s_to
     elif user == 'q':
         print('Thanks for playing!')
         break
@@ -76,4 +82,5 @@ while not user == 'q':
 
     print(player.location)
     print("\nChoose again to continue")
+    user = ""
     user = input("[n] North  [e] East  [w] West  [s] South  [q] Quit: ")
