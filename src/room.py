@@ -7,4 +7,4 @@ class Room:
         self.desc = desc
 
     def __str__(self):
-        return 'You\'re currently in {self.name}'.format(self=self)
+        return '{self.name}: {self.desc}'.format(self=self)

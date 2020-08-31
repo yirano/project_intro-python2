@@ -61,13 +61,13 @@ user = input("[n] North  [e] East  [w] West  [s] South  [q] Quit: ").lower()
 while not user == 'q':
     if user == 'n':
         print("North")
-        # player.location = room[player.location].n_to
-        player = Player(name, room[player.location].n_to)
+        # print(room[player.location].n_to)
+        print(player)
     elif user == 'e':
         print("East")
         # player.location = room[player.location].e_to
-        player = Player(name, room[player.location].e_to)
-
+        room[player.location].e_to
+        player.location = 'overlook'
     elif user == 'w':
         print("West")
         player.location = room[player.location].w_to
@@ -80,7 +80,7 @@ while not user == 'q':
     else:
         print("Please provide valid input")
 
-    print(player.location)
+    # print(player.location)
     print("\nChoose again to continue")
     user = ""
     user = input("[n] North  [e] East  [w] West  [s] South  [q] Quit: ")
