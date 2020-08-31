@@ -39,8 +39,7 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
-print(room['outside'].n_to)
-print(room['outside'])
+
 
 name = input("What's your name? ")
 start = 'outside'
@@ -62,6 +61,7 @@ user = input("[n] North  [e] East  [w] West  [s] South  [q] Quit: ")
 while not user == 'q':
     if user == 'n':
         print("North")
+        room[player.location] = room[player.location].n_to
     elif user == 'e':
         print("East")
     elif user == 'w':
@@ -74,5 +74,6 @@ while not user == 'q':
     else:
         print("Please provide valid input")
 
+    print(player.location)
     print("\nChoose again to continue")
     user = input("[n] North  [e] East  [w] West  [s] South  [q] Quit: ")
