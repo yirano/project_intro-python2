@@ -20,4 +20,6 @@ class Room:
         else:
             self.curr = 'treasure'
 
-        return self.curr
+        # return self.curr, message
+        # return '{} {}'.format(self.curr, message)
+        return f'{self.curr}, {message}'

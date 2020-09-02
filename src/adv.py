@@ -56,34 +56,39 @@ user = input("[n] North  [e] East  [w] West  [s] South  [q] Quit: ").lower()
 #
 # If the user enters "q", quit the game.
 while not user == 'q':
-    # try:
-    if user == 'n':
-        print("North")
-        player.location = str(room[player.location].n_to)
-    elif user == 'e':
-        print("East")
-        room[player.location].e_to
-        player.location = str(room[player.location].e_to)
+    try:
+        if user == 'n':
+            location = str(room[player.location].n_to).split(', ')
+            player.location = location[0]
+            message = location[1]
+        elif user == 'e':
+            location = str(room[player.location].e_to).split(', ')
+            player.location = location[0]
+            message = location[1]
 
-    elif user == 'w':
-        print("West")
-        player.location = str(room[player.location].w_to)
+        elif user == 'w':
+            location = str(room[player.location].w_to).split(', ')
+            player.location = location[0]
+            message = location[1]
 
-    elif user == 's':
-        print("South")
-        room[player.location].s_to
-        player.location = str(room[player.location].s_to)
+        elif user == 's':
+            location = str(room[player.location].s_to).split(', ')
+            player.location = location[0]
+            message = location[1]
 
-    elif user == 'q':
-        print('Thanks for playing!')
-        # break
-    else:
-        print("Please provide valid input")
+        elif user == 'q':
+            print('Thanks for playing!')
+            # break
+        else:
+            print("Please provide valid input")
 
-    print(f'Location: {player.location}')
-    print("\nChoose again to continue")
-    user = ""
-    user = input("[n] North  [e] East  [w] West  [s] South  [q] Quit: ")
-    # except Exception:
-    #     print("Provide valid input")
-    #     break
+        print(f'Location: {player.location}')
+        print(f'Message: {message}')
+        print("\nChoose again to continue")
+        user = input("[n] North  [e] East  [w] West  [s] South  [q] Quit: ")
+    except Exception:
+        if AttributeError:
+            print("You entered hell")
+            break
+        elif NameError:
+            print("That pathway DNE")
