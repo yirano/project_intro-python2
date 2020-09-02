@@ -26,13 +26,13 @@ earlier adventurers. The only exit is to the south."""),
 # Link rooms together
 
 room['outside'].n_to = room['foyer']
-room['foyer'].s_to = room['outside']
 room['foyer'].n_to = room['overlook']
-room['foyer'].e_to = room['narrow']
-room['overlook'].s_to = room['foyer']
-room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
+room['foyer'].s_to = room['outside']
+room['overlook'].s_to = room['foyer']
 room['treasure'].s_to = room['narrow']
+room['foyer'].e_to = room['narrow']
+room['narrow'].w_to = room['foyer']
 
 #
 # Main
@@ -60,20 +60,14 @@ user = input("[n] North  [e] East  [w] West  [s] South  [q] Quit: ").lower()
 # If the user enters "q", quit the game.
 while not user == 'q':
     if user == 'n':
-        print("North")
-        # print(room[player.location].n_to)
-        print(player)
+        print(room[player.location].n_to())
+
     elif user == 'e':
         print("East")
-        # player.location = room[player.location].e_to
-        room[player.location].e_to
-        player.location = 'overlook'
     elif user == 'w':
         print("West")
-        player.location = room[player.location].w_to
     elif user == 's':
         print("South")
-        player.location = room[player.location].s_to
     elif user == 'q':
         print('Thanks for playing!')
         break

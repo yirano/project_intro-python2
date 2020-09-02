@@ -8,3 +8,9 @@ class Room:
 
     def __str__(self):
         return '{self.name}: {self.desc}'.format(self=self)
+
+    def n_to(self):
+        if (self.name == 'Outside Cave Entrance'):
+            return 'outside'
+        else:
+            return 'hello'
