@@ -41,10 +41,7 @@ room['narrow'].w_to = room['foyer']
 # Make a new player object that is currently in the 'outside' room.
 
 
-name = input("What's your name? ")
-start = 'outside'
-
-player = Player(name, start)
+player = Player("Tiffany", "outside")
 
 print(f'Hello {player.name}')
 user = input("[n] North  [e] East  [w] West  [s] South  [q] Quit: ").lower()
@@ -59,22 +56,24 @@ user = input("[n] North  [e] East  [w] West  [s] South  [q] Quit: ").lower()
 #
 # If the user enters "q", quit the game.
 while not user == 'q':
-    if user == 'n':
-        print(room[player.location].n_to())
+    try:
+        if user == 'n':
+            print("North")
+        elif user == 'e':
+            print("East")
+        elif user == 'w':
+            print("West")
+        elif user == 's':
+            print("South")
+        elif user == 'q':
+            print('Thanks for playing!')
+            # break
+        else:
+            print("Please provide valid input")
 
-    elif user == 'e':
-        print("East")
-    elif user == 'w':
-        print("West")
-    elif user == 's':
-        print("South")
-    elif user == 'q':
-        print('Thanks for playing!')
-        break
-    else:
-        print("Please provide valid input")
-
-    # print(player.location)
-    print("\nChoose again to continue")
-    user = ""
-    user = input("[n] North  [e] East  [w] West  [s] South  [q] Quit: ")
+        # print(player.location)
+        print("\nChoose again to continue")
+        user = ""
+        user = input("[n] North  [e] East  [w] West  [s] South  [q] Quit: ")
+    except Exception:
+        print("Provide valid input")
