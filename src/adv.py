@@ -56,24 +56,34 @@ user = input("[n] North  [e] East  [w] West  [s] South  [q] Quit: ").lower()
 #
 # If the user enters "q", quit the game.
 while not user == 'q':
-    try:
-        if user == 'n':
-            print("North")
-        elif user == 'e':
-            print("East")
-        elif user == 'w':
-            print("West")
-        elif user == 's':
-            print("South")
-        elif user == 'q':
-            print('Thanks for playing!')
-            # break
-        else:
-            print("Please provide valid input")
+    # try:
+    if user == 'n':
+        print("North")
+        player.location = str(room[player.location].n_to)
+    elif user == 'e':
+        print("East")
+        room[player.location].e_to
+        player.location = str(room[player.location].e_to)
 
-        # print(player.location)
-        print("\nChoose again to continue")
-        user = ""
-        user = input("[n] North  [e] East  [w] West  [s] South  [q] Quit: ")
-    except Exception:
-        print("Provide valid input")
+    elif user == 'w':
+        print("West")
+        player.location = str(room[player.location].w_to)
+
+    elif user == 's':
+        print("South")
+        room[player.location].s_to
+        player.location = str(room[player.location].s_to)
+
+    elif user == 'q':
+        print('Thanks for playing!')
+        # break
+    else:
+        print("Please provide valid input")
+
+    print(f'Location: {player.location}')
+    print("\nChoose again to continue")
+    user = ""
+    user = input("[n] North  [e] East  [w] West  [s] South  [q] Quit: ")
+    # except Exception:
+    #     print("Provide valid input")
+    #     break
