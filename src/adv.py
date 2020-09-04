@@ -37,6 +37,7 @@ treasure.s_to = narrow
 
 # Make a new player object that is currently in the 'outside' room.
 player = Player(outside)
+print(player.current_room)
 # Write a loop that:
 #
 # * Prints the current room name
@@ -48,15 +49,19 @@ player = Player(outside)
 #
 # If the user enters "q", quit the game.
 while True:
-    user = input("Pick a direction [n, s, e, w]: ")
-    print(player.current_room)
-    print(player)
-    if user in {'n', 's', 'e', 'w'}:
-        if hasattr(player.current_room, f'{user}_to'):
-            player.current_room = getattr(player.current_room, f'{user}_to')
-            stuff = player.current_room.stuff()
-
-    print(f'Items: {player.items}')
+    try:
+        user = input("Pick a direction [n, s, e, w]: ")
+        print(player)
+        if user in {'n', 's', 'e', 'w'}:
+            if hasattr(player.current_room, f'{user}_to'):
+                player.current_room = getattr(
+                    player.current_room, f'{user}_to')
+                stuff = player.current_room.stuff()
+        tools = input(f'Pick from the following items: {stuff}')
+        print(f'Items: {player.items}')
+    except AttributeError:
+        print("You entered the pit of hell")
+        break
 ''' Using the following block would require x4
 if user == 'n':
     # check if the curr room has a n_to attr

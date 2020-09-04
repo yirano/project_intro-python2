@@ -17,15 +17,21 @@ class Room(Item):
         output = f'{self.name}: {self.description}\n'
         stuff = f'{self.items}'
         if self.s_to:
-            output += 'To the south is: ' + self.s_to.name + '\n'
+            return'You have entered: ' + self.s_to.name + '\n'
         elif self.w_to:
-            output += 'To the west is: ' + self.w_to.name + '\n'
+            return'You have entered: ' + self.w_to.name + '\n'
         elif self.e_to:
-            output += 'To the east is: ' + self.e_to.name + '\n'
+            return'You have entered: ' + self.e_to.name + '\n'
         elif self.n_to:
-            output += 'To the north is: ' + self.n_to.name + '\n'
-        return output + stuff
+            return'You have entered: ' + self.n_to.name + '\n'
+        # return output + stuff
 
     def stuff(self):
         # print(f'STUFF: {user}')
-        return f'Items to choose: {self.items}'
+        # return f'Items to choose: {self.items}'
+        output = ''
+        n = 1
+        for tools in self.items:
+            output += f'\n{n}. {tools}'
+            n += 1
+        return output + '\n>>> '

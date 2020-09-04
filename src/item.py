@@ -3,4 +3,8 @@ class Item:
         self.items = items
 
     def __str__(self):
-        return f'{self.items}'
+        # return f'{self.items}'
+        output = ''
+        for tools in self.items:
+            output += f'\n1. {tools}'
+        return output
