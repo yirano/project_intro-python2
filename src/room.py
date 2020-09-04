@@ -27,6 +27,7 @@ class Room(Item):
         # return output + stuff
 
     def stuff(self):
+        # return self.items
         output = ''
         n = 1
         for tools in self.items:

@@ -57,9 +57,11 @@ while True:
                 player.current_room = getattr(
                     player.current_room, f'{user}_to')
                 stuff = player.current_room.stuff()
-        tools = input(f'Pick from the following items: {stuff}')
-        print(tools)
-        print(f'Items: {player.items}')
+                # doSomething = filter(str, stuff.split(','))
+                # print(f'SOMETHING: {doSomething}')
+        tools = input(f'Pick from the following items:{stuff}')
+        print(f'Item PICKED: {player.current_room.items[int(tools)-1]}')
+        print(f'Items:  {player.items}, {player.current_room.items}')
     except AttributeError:
         print("You entered the pit of hell")
         break
