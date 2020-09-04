@@ -60,8 +60,8 @@ while True:
                 # doSomething = filter(str, stuff.split(','))
                 # print(f'SOMETHING: {doSomething}')
         tools = input(f'Pick from the following items:{stuff}')
-        print(f'Item PICKED: {player.current_room.items[int(tools)-1]}')
-        print(f'Items:  {player.items}, {player.current_room.items}')
+        player.append({player.current_room.items[int(tools)-1]})
+        print(f'Items in your Backpack:  {player.items}')
     except AttributeError:
         print("You entered the pit of hell")
         break
