@@ -3,10 +3,10 @@ from player import Player
 # Declare all the rooms
 
 outside = Room("Outside Cave Entrance",
-               "North of you, the cave mount beckons")
+               "North of you, the cave mount beckons", ['sticks', 'leaves'])
 
 foyer = Room("Foyer", """Dim light filters in from the south. Dusty
-passages run north and east.""")
+passages run north and east.""", ['flower', 'lamp'])
 
 overlook = Room("Grand Overlook", """A steep cliff appears before you, falling
 into the darkness. Ahead to the north, a light flickers in
@@ -48,17 +48,17 @@ print(player.current_room)
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
-user = input("Pick a direction")
+user = input("Pick a direction: ")
 
-if user in {'n', 's', 'e', 'w'}:
-    if hasattr(player.current_room, f'{user}_to'):
-        player.current_room = getattr(player.current_room, f'{user}_to')
+while user != 'q':
+    if user in {'n', 's', 'e', 'w'}:
+        if hasattr(player.current_room, f'{user}_to'):
+            player.current_room = getattr(player.current_room, f'{user}_to')
 
-
-''' Using the following block would require x4
-if user == 'n':
-    # check if the curr room has a n_to attr
-    if player.current_room.n_is not None:
-        # move the player to that room
-        player.current_room = player.current_room.n_to
-'''
+    ''' Using the following block would require x4
+    if user == 'n':
+        # check if the curr room has a n_to attr
+        if player.current_room.n_is not None:
+            # move the player to that room
+            player.current_room = player.current_room.n_to
+    '''
