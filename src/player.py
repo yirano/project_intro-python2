@@ -4,7 +4,7 @@ from item import Item
 
 
 class Player(Item):
-    def __init__(self, current_room=None, items=[]):
+    def __init__(self, current_room, items=[]):
         super().__init__(items)
         self.current_room = current_room
 

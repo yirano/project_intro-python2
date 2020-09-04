@@ -37,7 +37,6 @@ treasure.s_to = narrow
 
 # Make a new player object that is currently in the 'outside' room.
 player = Player(outside)
-print(player.current_room)
 # Write a loop that:
 #
 # * Prints the current room name
@@ -48,17 +47,18 @@ print(player.current_room)
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
-user = input("Pick a direction: ")
-
-while user != 'q':
+while True:
+    print(player.current_room)
+    user = input("Pick a direction: ")
     if user in {'n', 's', 'e', 'w'}:
         if hasattr(player.current_room, f'{user}_to'):
             player.current_room = getattr(player.current_room, f'{user}_to')
 
-    ''' Using the following block would require x4
-    if user == 'n':
-        # check if the curr room has a n_to attr
-        if player.current_room.n_is not None:
-            # move the player to that room
-            player.current_room = player.current_room.n_to
-    '''
+
+''' Using the following block would require x4
+if user == 'n':
+    # check if the curr room has a n_to attr
+    if player.current_room.n_is not None:
+        # move the player to that room
+        player.current_room = player.current_room.n_to
+'''
