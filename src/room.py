@@ -15,6 +15,7 @@ class Room(Item):
 
     def __str__(self):
         output = f'{self.name}: {self.description}\n'
+        stuff = f'{self.items}'
         if self.s_to:
             output += 'To the south is: ' + self.s_to.name + '\n'
         elif self.w_to:
@@ -24,4 +25,4 @@ class Room(Item):
         elif self.n_to:
             output += 'To the north is: ' + self.n_to.name + '\n'
 
-        return output
+        return output + stuff

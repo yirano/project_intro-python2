@@ -10,14 +10,14 @@ passages run north and east.""", ['flower', 'lamp'])
 
 overlook = Room("Grand Overlook", """A steep cliff appears before you, falling
 into the darkness. Ahead to the north, a light flickers in
-the distance, but there is no way across the chasm.""")
+the distance, but there is no way across the chasm.""", ['sword', 'ax'])
 
 narrow = Room("Narrow Passage", """The narrow passage bends here from west
-to north. The smell of gold permeates the air.""")
+to north. The smell of gold permeates the air.""", ['skull', 'hammer'])
 
 treasure = Room("Treasure Chamber", """You've found the long-lost treasure
 chamber! Sadly, it has already been completely emptied by
-earlier adventurers. The only exit is to the south.""")
+earlier adventurers. The only exit is to the south.""", ['gold', 'forbidden treasure'])
 
 
 # Link rooms together
@@ -54,7 +54,7 @@ while True:
         if hasattr(player.current_room, f'{user}_to'):
             player.current_room = getattr(player.current_room, f'{user}_to')
 
-
+    print(f'Items: {player.items}')
 ''' Using the following block would require x4
 if user == 'n':
     # check if the curr room has a n_to attr
