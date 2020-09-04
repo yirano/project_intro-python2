@@ -4,6 +4,3 @@ class Item:
 
     def __str__(self):
         return f'{self.items}'
-
-    def add(self):
-        self.items.append('apple')

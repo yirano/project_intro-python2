@@ -48,14 +48,13 @@ player = Player(outside)
 #
 # If the user enters "q", quit the game.
 while True:
+    user = input("Pick a direction [n, s, e, w]: ")
     print(player.current_room)
     print(player)
-    user = input("Pick a direction [n, s, e, w]: ")
     if user in {'n', 's', 'e', 'w'}:
         if hasattr(player.current_room, f'{user}_to'):
             player.current_room = getattr(player.current_room, f'{user}_to')
-            stuff = getattr(player.current_room, f'{user}_to').stuff()
-            player.append('apple')
+            stuff = player.current_room.stuff()
 
     print(f'Items: {player.items}')
 ''' Using the following block would require x4
