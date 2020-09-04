@@ -27,8 +27,6 @@ class Room(Item):
         # return output + stuff
 
     def stuff(self):
-        # print(f'STUFF: {user}')
-        # return f'Items to choose: {self.items}'
         output = ''
         n = 1
         for tools in self.items:

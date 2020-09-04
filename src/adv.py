@@ -58,14 +58,8 @@ while True:
                     player.current_room, f'{user}_to')
                 stuff = player.current_room.stuff()
         tools = input(f'Pick from the following items: {stuff}')
+        print(tools)
         print(f'Items: {player.items}')
     except AttributeError:
         print("You entered the pit of hell")
         break
-''' Using the following block would require x4
-if user == 'n':
-    # check if the curr room has a n_to attr
-    if player.current_room.n_is not None:
-        # move the player to that room
-        player.current_room = player.current_room.n_to
-'''
