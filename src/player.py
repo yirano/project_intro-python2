@@ -10,6 +10,8 @@ class Player(Item):
 
     # def __str__(self):
     #     return f'{self.items}'
+    def append(self, item):
+        self.items.append(item)
 
 
 # print(Player('north', ['apple']))

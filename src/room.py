@@ -24,5 +24,7 @@ class Room(Item):
             output += 'To the east is: ' + self.e_to.name + '\n'
         elif self.n_to:
             output += 'To the north is: ' + self.n_to.name + '\n'
-
         return output + stuff
+
+    def stuff(self):
+        return f'Items to choose: {self.items}'
