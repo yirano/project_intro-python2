@@ -1,12 +1,12 @@
 from player import Player
 
 
-class Game(Player):
-    def __init__(self, items=[]):
-        super().__init__(items)
+class Game:
+    def __init__(self, player, items=[]):
+        # super().__init__(items)
+        self.player = player
 
     def handle_items(self, tools):
-        output = ''
         pick_drop = input(
             f"You've come across some items. [0] to skip, [1] to gather: ")
         if pick_drop == str(1):

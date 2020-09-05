@@ -66,21 +66,21 @@ treasure.s_to = narrow
 #         pass
 
 player = Player(outside)
-game = Game()
+game = Game(player)
 print(player.current_room)
 
 while True:
-    # try:
-    user = input("Pick a direction [n, s, e, w]: ")
+    try:
+        user = input("Pick a direction [n, s, e, w]: ")
 
-    if user in {'n', 's', 'e', 'w'}:
-        if hasattr(player.current_room, f'{user}_to'):
-            player.current_room = getattr(
-                player.current_room, f'{user}_to')
-            tools = player.current_room.stuff()
-    print(f'\n{player.current_room}\n')
-    Game.handle_items(tools)
+        if user in {'n', 's', 'e', 'w'}:
+            if hasattr(player.current_room, f'{user}_to'):
+                player.current_room = getattr(
+                    player.current_room, f'{user}_to')
+                tools = player.current_room.stuff()
+        print(f'\n{player.current_room}\n')
+        game.handle_items(tools)
 
-    # except AttributeError:
-    #     print("\nYou've just fallen into the pit of hell.")
-    #     break
+    except AttributeError:
+        print("\nYou've just fallen into the pit of hell.")
+        break
