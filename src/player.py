@@ -14,4 +14,7 @@ class Player(Item):
     def append(self, item):
         self.items.extend(item)
 
+    def drop(self, i):
+        self.items.pop(i)
+
 # print(Player('north', ['apple']))

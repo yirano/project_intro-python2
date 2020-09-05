@@ -1,5 +1,6 @@
 from room import Room
 from player import Player
+from game import Game
 # Declare all the rooms
 
 outside = Room("Outside Cave Entrance",
@@ -36,8 +37,7 @@ treasure.s_to = narrow
 #
 
 # Make a new player object that is currently in the 'outside' room.
-player = Player(outside)
-print(player.current_room)
+
 # Write a loop that:
 #
 # * Prints the current room name
@@ -48,34 +48,39 @@ print(player.current_room)
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+
+# def handle_items():
+#     pick_drop = input(
+#         f"You've come across some items. [0] to skip, [1] to gather: ")
+#     if pick_drop == str(1):
+#         tools = input(f'Pick from the following items:{stuff}')
+#         try:
+#             player.append({player.current_room.items[int(tools)-1]})
+#             print(f'Items in your Backpack:  {player.items}\n')
+#         except IndexError:
+#             print(
+#                 'Such an item does not exist, you have missed the opportunity for it.')
+#             pass
+#     else:
+#         pass
+
+player = Player(outside)
+game = Game()
+print(player.current_room)
+
 while True:
-    try:
-        user = input("Pick a direction [n, s, e, w]: ")
+    # try:
+    user = input("Pick a direction [n, s, e, w]: ")
 
-        if user in {'n', 's', 'e', 'w'}:
-            if hasattr(player.current_room, f'{user}_to'):
-                player.current_room = getattr(
-                    player.current_room, f'{user}_to')
-                stuff = player.current_room.stuff()
-        print(f'\n{player.current_room}\n')
-        pick_drop = input(
-            f"You've come across some items. [0] to skip, [1] to gather: ")
-        if pick_drop == str(1):
-            tools = input(f'Pick from the following items:{stuff}')
-            try:
-                player.append({player.current_room.items[int(tools)-1]})
-                print(f'Items in your Backpack:  {player.items}\n')
-            except IndexError:
-                print(
-                    'Such an item does not exist, you have missed the opportunity for it.')
-                pass
-        else:
-            pass
-    except AttributeError:
-        print("You can't go there...")
-        pass
+    if user in {'n', 's', 'e', 'w'}:
+        if hasattr(player.current_room, f'{user}_to'):
+            player.current_room = getattr(
+                player.current_room, f'{user}_to')
+            tools = player.current_room.stuff()
+    print(f'\n{player.current_room}\n')
+    Game.handle_items(tools)
 
-
-class Game:
-    def __init__(self):
-        pass
+    # except AttributeError:
+    #     print("\nYou've just fallen into the pit of hell.")
+    #     break
