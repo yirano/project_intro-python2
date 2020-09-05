@@ -51,17 +51,31 @@ print(player.current_room)
 while True:
     try:
         user = input("Pick a direction [n, s, e, w]: ")
-        print(player)
+
         if user in {'n', 's', 'e', 'w'}:
             if hasattr(player.current_room, f'{user}_to'):
                 player.current_room = getattr(
                     player.current_room, f'{user}_to')
                 stuff = player.current_room.stuff()
-                # doSomething = filter(str, stuff.split(','))
-                # print(f'SOMETHING: {doSomething}')
-        tools = input(f'Pick from the following items:{stuff}')
-        player.append({player.current_room.items[int(tools)-1]})
-        print(f'Items in your Backpack:  {player.items}')
+        print(f'\n{player.current_room}\n')
+        pick_drop = input(
+            f"You've come across some items. [0] to skip, [1] to gather: ")
+        if pick_drop == str(1):
+            tools = input(f'Pick from the following items:{stuff}')
+            try:
+                player.append({player.current_room.items[int(tools)-1]})
+                print(f'Items in your Backpack:  {player.items}\n')
+            except IndexError:
+                print(
+                    'Such an item does not exist, you have missed the opportunity for it.')
+                pass
+        else:
+            pass
     except AttributeError:
-        print("You entered the pit of hell")
-        break
+        print("You can't go there...")
+        pass
+
+
+class Game:
+    def __init__(self):
+        pass

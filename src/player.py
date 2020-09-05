@@ -8,10 +8,10 @@ class Player(Item):
         super().__init__(items)
         self.current_room = current_room
 
-    # def __str__(self):
-    #     return f'{self.items}'
-    def append(self, item):
-        self.items.append(item)
+    def __str__(self):
+        return f'{self.items}'
 
+    def append(self, item):
+        self.items.extend(item)
 
 # print(Player('north', ['apple']))

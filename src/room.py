@@ -17,14 +17,14 @@ class Room(Item):
         output = f'{self.name}: {self.description}\n'
         stuff = f'{self.items}'
         if self.s_to:
-            return'You have entered: ' + self.s_to.name + '\n'
+            return output + '\n' + 'You have entered from ' + self.s_to.name + '\n'
         elif self.w_to:
-            return'You have entered: ' + self.w_to.name + '\n'
+            return output + '\n' + 'You have entered from ' + self.w_to.name + '\n'
         elif self.e_to:
-            return'You have entered: ' + self.e_to.name + '\n'
+            return output + '\n' + 'You have entered from ' + self.e_to.name + '\n'
         elif self.n_to:
-            return'You have entered: ' + self.n_to.name + '\n'
-        # return output + stuff
+            return output + '\n' + 'You have entered from ' + self.n_to.name + '\n'
+        return output + stuff
 
     def stuff(self):
         # return self.items
