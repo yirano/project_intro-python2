@@ -39,10 +39,6 @@ treasure.s_to = narrow
 # Make a new player object that is currently in the 'outside' room.
 
 
-player = Player("Tiffany", "outside")
-
-print(f'Hello {player.name}')
-user = input("[n] North  [e] East  [w] West  [s] South  [q] Quit: ").lower()
 # Write a loop that:
 #
 # * Prints the current room name
@@ -84,7 +80,7 @@ while True:
                     player.current_room, f'{user}_to')
                 tools = player.current_room.stuff()
         print(f'\n{player.current_room}\n')
-        game.handle_items(tools)
+        game.handle_items(player.current_room.items)
 
     except AttributeError:
         print("\nYou've just fallen into the pit of hell.")
