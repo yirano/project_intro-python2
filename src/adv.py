@@ -69,7 +69,9 @@ treasure.s_to = narrow
 player = Player(outside)
 game = Game(player)
 print(player.current_room)
-user = input("Pick a direction [n, s, e, w]: ")
+# user = input("Pick a direction [n, s, e, w]: ")
+user = game.control_direction()
+
 while user != 'q':
     try:
 
@@ -81,7 +83,8 @@ while user != 'q':
         print(f'\n{player.current_room}\n')
         game.handle_items(player.current_room.room_items)
 
-        user = input("Pick a direction [n, s, e, w]: ")
+        # user = input("Pick a direction [n, s, e, w]: ")
+        user = game.control_direction()
 
     except AttributeError:
         print(AttributeError)

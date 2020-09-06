@@ -32,3 +32,6 @@ class Game(Player):
             print(f'Items in your Backpack:  {self.player_items}\n')
         else:
             print("Your bag is empty")
+
+    def control_direction(self):
+        return input("Pick a direction [n, s, e, w]: ")
