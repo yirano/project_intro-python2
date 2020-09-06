@@ -11,10 +11,11 @@ class Player(Item):
     def __str__(self):
         return f'{self.items}'
 
-    def append(self, item):
-        self.items.extend(item)
+    # def append(self, item):
+    #     self.items.extend(item)
 
-    def drop(self, i):
-        self.items.pop(i)
+    # def rid(self):
+    #     print(f'DROP THIS')
+    #     # self.items.pop(i)
 
 # print(Player('north', ['apple']))

@@ -83,5 +83,6 @@ while True:
         game.handle_items(player.current_room.items)
 
     except AttributeError:
+        print(AttributeError)
         print("\nYou've just fallen into the pit of hell.")
         break
