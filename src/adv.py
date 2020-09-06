@@ -79,7 +79,7 @@ while user != 'q':
                     player.current_room, f'{user}_to')
                 tools = player.current_room.stuff()
         print(f'\n{player.current_room}\n')
-        game.handle_items(player.current_room.items)
+        game.handle_items(player.current_room.room_items)
 
         user = input("Pick a direction [n, s, e, w]: ")
 

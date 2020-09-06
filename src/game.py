@@ -3,8 +3,8 @@ from room import Room
 
 
 class Game(Player):
-    def __init__(self, items=[]):
-        super().__init__(items)
+    def __init__(self, player_items=[]):
+        super().__init__(player_items)
 
     def handle_items(self, tools):
         pick_drop = input(
@@ -12,19 +12,23 @@ class Game(Player):
         if pick_drop == str(1):
             picked = input(f'Pick from the following items:{tools}')
             try:
-                self.add(tools[int(picked)-1])
+                self.player_add(tools[int(picked)-1])
             except IndexError:
                 print(
                     'Such an item does not exist, you have missed the opportunity for it.')
                 pass
         elif pick_drop == str(2):
             try:
-                if len(self.items) == 0:
+                if len(self.player_items) == 0:
                     print('There is nothing to drop')
                 else:
-                    rid = input(f"Pick an item to drop: {self.items} >>>")
-                    self.drop(int(rid)-1)
+                    rid = input(
+                        f"Pick an item to drop: {self.player_items} >>>")
+                    self.player_drop(int(rid)-1)
 
             except IndexError:
                 pass
-        print(f'Items in your Backpack:  {self.items}\n')
+        if len(self.player_items) > 0:
+            print(f'Items in your Backpack:  {self.player_items}\n')
+        else:
+            print("Your bag is empty")

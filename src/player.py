@@ -4,18 +4,15 @@ from item import Item
 
 
 class Player(Item):
-    def __init__(self, current_room, items=[]):
-        super().__init__(items)
+    def __init__(self, current_room, player_items=[]):
+        super().__init__(player_items)
         self.current_room = current_room
 
     def __str__(self):
         return f'{self.items}'
 
-    def test(self, name):
-        print(f"hello! {name}")
+    # def add(self, item):
+    #     self.items.append(item)
 
-    def add(self, item):
-        self.items.append(item)
-
-    def drop(self, i):
-        self.items.pop(i)
+    # def drop(self, i):
+    #     self.items.pop(i)
