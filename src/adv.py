@@ -51,21 +51,6 @@ treasure.s_to = narrow
 # If the user enters "q", quit the game.
 
 
-# def handle_items():
-#     pick_drop = input(
-#         f"You've come across some items. [0] to skip, [1] to gather: ")
-#     if pick_drop == str(1):
-#         tools = input(f'Pick from the following items:{stuff}')
-#         try:
-#             player.append({player.current_room.items[int(tools)-1]})
-#             print(f'Items in your Backpack:  {player.items}\n')
-#         except IndexError:
-#             print(
-#                 'Such an item does not exist, you have missed the opportunity for it.')
-#             pass
-#     else:
-#         pass
-
 player = Player(outside)
 game = Game(player)
 print(player.current_room)
