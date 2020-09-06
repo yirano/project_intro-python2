@@ -32,44 +32,12 @@ narrow.w_to = foyer
 narrow.n_to = treasure
 treasure.s_to = narrow
 
-#
-# Main
-#
-
-# Make a new player object that is currently in the 'outside' room.
-
-
-# Write a loop that:
-#
-# * Prints the current room name
-# * Prints the current description (the textwrap module might be useful here).
-# * Waits for user input and decides what to do.
-#
-# If the user enters a cardinal direction, attempt to move to the room there.
-# Print an error message if the movement isn't allowed.
-#
-# If the user enters "q", quit the game.
-
-
-# def handle_items():
-#     pick_drop = input(
-#         f"You've come across some items. [0] to skip, [1] to gather: ")
-#     if pick_drop == str(1):
-#         tools = input(f'Pick from the following items:{stuff}')
-#         try:
-#             player.append({player.current_room.items[int(tools)-1]})
-#             print(f'Items in your Backpack:  {player.items}\n')
-#         except IndexError:
-#             print(
-#                 'Such an item does not exist, you have missed the opportunity for it.')
-#             pass
-#     else:
-#         pass
 
 player = Player(outside)
 game = Game(player)
 print(player.current_room)
 user = input("Pick a direction [n, s, e, w]: ")
+
 while user != 'q':
     try:
 
