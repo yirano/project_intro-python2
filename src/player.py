@@ -11,6 +11,15 @@ class Player(Item):
     def __str__(self):
         return f'{self.items}'
 
+    def test(self, name):
+        print(f"hello! {name}")
+
+    def add(self, item):
+        self.items.append(item)
+
+    def drop(self, i):
+        self.items.pop(i)
+
     # def append(self, item):
     #     self.items.extend(item)
 

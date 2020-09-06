@@ -69,10 +69,9 @@ treasure.s_to = narrow
 player = Player(outside)
 game = Game(player)
 print(player.current_room)
-
-while True:
+user = input("Pick a direction [n, s, e, w]: ")
+while user != 'q':
     try:
-        user = input("Pick a direction [n, s, e, w]: ")
 
         if user in {'n', 's', 'e', 'w'}:
             if hasattr(player.current_room, f'{user}_to'):
@@ -81,6 +80,8 @@ while True:
                 tools = player.current_room.stuff()
         print(f'\n{player.current_room}\n')
         game.handle_items(player.current_room.items)
+
+        user = input("Pick a direction [n, s, e, w]: ")
 
     except AttributeError:
         print(AttributeError)

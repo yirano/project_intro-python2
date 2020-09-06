@@ -12,8 +12,9 @@ class Game(Player):
         if pick_drop == str(1):
             picked = input(f'Pick from the following items:{tools}')
             try:
-                self.items.append(tools[int(picked)-1])
+                self.add(tools[int(picked)-1])
                 # print(f'Items in your Backpack:  {self.items}\n')
+                # print(self.test("Jack"))
             except IndexError:
                 print(
                     'Such an item does not exist, you have missed the opportunity for it.')
@@ -24,7 +25,7 @@ class Game(Player):
                     print('There is nothing to drop')
                 else:
                     rid = input(f"Pick an item to drop: {self.items} >>>")
-                    self.items.pop(int(rid)-1)
+                    self.drop(int(rid)-1)
 
             except IndexError:
                 pass
