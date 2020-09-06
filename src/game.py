@@ -13,8 +13,6 @@ class Game(Player):
             picked = input(f'Pick from the following items:{tools}')
             try:
                 self.add(tools[int(picked)-1])
-                # print(f'Items in your Backpack:  {self.items}\n')
-                # print(self.test("Jack"))
             except IndexError:
                 print(
                     'Such an item does not exist, you have missed the opportunity for it.')
