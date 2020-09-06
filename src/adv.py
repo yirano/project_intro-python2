@@ -54,7 +54,6 @@ treasure.s_to = narrow
 player = Player(outside)
 game = Game(player)
 print(player.current_room)
-# user = input("Pick a direction [n, s, e, w]: ")
 user = game.control_direction()
 
 while user != 'q':
@@ -68,10 +67,9 @@ while user != 'q':
         print(f'\n{player.current_room}\n')
         game.handle_items(player.current_room.room_items)
 
-        # user = input("Pick a direction [n, s, e, w]: ")
         user = game.control_direction()
 
-    except AttributeError:
-        print(AttributeError)
+    except AttributeError as e:
+        # print(e)
         print("\nYou've just fallen into the pit of hell.")
         break
