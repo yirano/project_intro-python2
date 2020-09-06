@@ -4,8 +4,8 @@ from item import Item
 
 
 class Room(Item):
-    def __init__(self, name, description, items=[]):
-        super().__init__(items)
+    def __init__(self, name, description, room_items=[]):
+        super().__init__(room_items)
         self.name = name
         self.description = description
         self.s_to = None
@@ -15,7 +15,7 @@ class Room(Item):
 
     def __str__(self):
         output = f'{self.name}: {self.description}\n'
-        stuff = f'{self.items}'
+        stuff = f'{self.room_items}'
         if self.s_to:
             return output + '\n' + 'You have entered from ' + self.s_to.name + '\n'
         elif self.w_to:
@@ -30,7 +30,7 @@ class Room(Item):
         # return self.items
         output = ''
         n = 1
-        for tools in self.items:
+        for tools in self.room_items:
             output += f'\n{n}. {tools}'
             n += 1
         return output + '\n>>> '

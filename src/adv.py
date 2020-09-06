@@ -32,11 +32,30 @@ narrow.w_to = foyer
 narrow.n_to = treasure
 treasure.s_to = narrow
 
+#
+# Main
+#
+
+# Make a new player object that is currently in the 'outside' room.
+
+
+# Write a loop that:
+#
+# * Prints the current room name
+# * Prints the current description (the textwrap module might be useful here).
+# * Waits for user input and decides what to do.
+#
+# If the user enters a cardinal direction, attempt to move to the room there.
+# Print an error message if the movement isn't allowed.
+#
+# If the user enters "q", quit the game.
+
 
 player = Player(outside)
 game = Game(player)
 print(player.current_room)
-user = input("Pick a direction [n, s, e, w]: ")
+# user = input("Pick a direction [n, s, e, w]: ")
+user = game.control_direction()
 
 while user != 'q':
     try:
@@ -47,9 +66,10 @@ while user != 'q':
                     player.current_room, f'{user}_to')
                 tools = player.current_room.stuff()
         print(f'\n{player.current_room}\n')
-        game.handle_items(player.current_room.items)
+        game.handle_items(player.current_room.room_items)
 
-        user = input("Pick a direction [n, s, e, w]: ")
+        # user = input("Pick a direction [n, s, e, w]: ")
+        user = game.control_direction()
 
     except AttributeError:
         print(AttributeError)
